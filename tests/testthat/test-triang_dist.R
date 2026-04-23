@@ -34,3 +34,20 @@ test_that("probability errors", {
   expect_error(qtriang(-0.2, 0, 6, 3))
   expect_error(qtriang(1.2, 0, 6, 3))
 })
+
+test_that("edge cases covered", {
+  expect_true(dtriang(0.1, 0, 1, 0) >= 0)
+
+  expect_true(dtriang(0.9, 0, 1, 1) >= 0)
+
+  expect_equal(ptriang(0, 0, 1, 0.5), 0)
+  expect_equal(ptriang(1, 0, 1, 0.5), 1)
+
+  expect_equal(qtriang(0, 0, 1, 0.5), 0)
+  expect_equal(qtriang(1, 0, 1, 0.5), 1)
+})
+
+test_that("error lines covered", {
+  expect_error(dtriang(0.5, 0, 1, 2))
+  expect_error(rtriang(0, 0, 1, 0.5))
+})
