@@ -55,3 +55,28 @@ ptriang <- function(q, min, max, mode) {
 
   return(x)
 }
+
+qtriang <- function(p, min, max, mode) {
+
+  check_tri_params(min, max, mode)
+
+  if (any(p < 0 | p > 1)) {
+    stop("p debe estar entre 0 y 1")
+  }
+
+  q <- numeric(length(p))
+
+  for (i in 1:length(p)) {
+
+    fc <- (mode - min) / (max - min)
+
+    if (p[i] <= fc) {
+      q[i] <- min + sqrt(p[i] * (max - min) * (mode - min))
+
+    } else {
+      q[i] <- max - sqrt((1 - p[i]) * (max - min) * (max - mode))
+    }
+  }
+
+  return(q)
+}
