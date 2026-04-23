@@ -1,3 +1,11 @@
+#' Check triangular distribution parameters
+#'
+#' @param min Lower limit.
+#' @param max Upper limit.
+#' @param mode Mode of the distribution.
+#'
+#' @return No return value. Stops with an error if parameters are invalid.
+#' @keywords internal
 check_tri_params <- function(min, max, mode) {
   if (any(min >= max, na.rm = TRUE)) {
     stop("`min` must be smaller than `max`.")
@@ -8,7 +16,15 @@ check_tri_params <- function(min, max, mode) {
   }
 }
 
-
+#' Density of the triangular distribution
+#'
+#' @param x Vector of values.
+#' @param min Lower limit.
+#' @param max Upper limit.
+#' @param mode Mode of the distribution.
+#'
+#' @return Numeric vector of density values.
+#' @export
 dtriang <- function(x, min, max, mode) {
 
   check_tri_params(min, max, mode)
@@ -31,6 +47,15 @@ dtriang <- function(x, min, max, mode) {
   return(f)
 }
 
+#' Distribution function of the triangular distribution
+#'
+#' @param q Vector of values.
+#' @param min Lower limit.
+#' @param max Upper limit.
+#' @param mode Mode of the distribution.
+#'
+#' @return Numeric vector of cumulative probabilities.
+#' @export
 ptriang <- function(q, min, max, mode) {
 
   check_tri_params(min, max, mode)
@@ -56,6 +81,15 @@ ptriang <- function(q, min, max, mode) {
   return(x)
 }
 
+#' Quantile function of the triangular distribution
+#'
+#' @param p Vector of probabilities.
+#' @param min Lower limit.
+#' @param max Upper limit.
+#' @param mode Mode of the distribution.
+#'
+#' @return Numeric vector of quantiles.
+#' @export
 qtriang <- function(p, min, max, mode) {
 
   check_tri_params(min, max, mode)
@@ -81,6 +115,16 @@ qtriang <- function(p, min, max, mode) {
   return(q)
 }
 
+#' Random generation from the triangular distribution
+#'
+#' @param n Number of observations.
+#' @param min Lower limit.
+#' @param max Upper limit.
+#' @param mode Mode of the distribution.
+#'
+#' @return Numeric vector of random values.
+#' @importFrom stats runif
+#' @export
 rtriang <- function(n, min, max, mode) {
 
   check_tri_params(min, max, mode)

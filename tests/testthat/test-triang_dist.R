@@ -1,5 +1,5 @@
 test_that("dtriang basic behavior", {
-  expect_equal(dtriang(3, 0, 6, 3), 1/3)
+  expect_equal(dtriang(3, 0, 6, 3), 1 / 3)
   expect_equal(dtriang(-2, 0, 6, 3), 0)
   expect_equal(dtriang(10, 0, 6, 3), 0)
 })
