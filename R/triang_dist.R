@@ -80,3 +80,15 @@ qtriang <- function(p, min, max, mode) {
 
   return(q)
 }
+
+rtriang <- function(n, min, max, mode) {
+
+  check_tri_params(min, max, mode)
+
+  if (n <= 0) {
+    stop("n debe ser positivo")
+  }
+
+  x <- runif(n)
+  qtriang(x, min, max, mode)
+}
