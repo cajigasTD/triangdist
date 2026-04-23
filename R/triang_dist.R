@@ -30,3 +30,28 @@ dtriang <- function(x, min, max, mode) {
 
   return(f)
 }
+
+ptriang <- function(q, min, max, mode) {
+
+  check_tri_params(min, max, mode)
+
+  x <- numeric(length(q))
+
+  for (i in 1:length(q)) {
+
+    if (q[i] < min) {
+      x[i] <- 0
+
+    } else if (q[i] > max) {
+      x[i] <- 1
+
+    } else if (q[i] <= mode) {
+      x[i] <- (q[i] - min)^2 / ((max - min) * (mode - min))
+
+    } else {
+      x[i] <- 1 - (max - q[i])^2 / ((max - min) * (max - mode))
+    }
+  }
+
+  return(x)
+}
