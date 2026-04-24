@@ -1,26 +1,25 @@
 
 # triangdist
 
-<!-- badges: start -->
-<!-- badges: end -->
-
-The goal of triangdist is to ...
+This package implements the triangular distribution in R.
 
 ## Installation
 
 You can install the development version of triangdist from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("cajigasTD/triangdist")
+install.packages("remotes")
+remotes::install_github("cajigasTD/triangdist")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(triangdist)
-## basic example code
+
+dtriang(0.5, 0, 1, 0.3)
+ptriang(0.5, 0, 1, 0.3)
+qtriang(0.5, 0, 1, 0.3)
+rtriang(5, 0, 1, 0.3)
 ```
 
